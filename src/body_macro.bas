@@ -157,3 +157,62 @@ Sub BodyMacro()
         :=False, SaveNativePictureFormat:=False, SaveFormsData:=False, _
         SaveAsAOCELetter:=False, CompatibilityMode:=15
 End Sub
+Sub Macro2()
+'
+' Macro2 Macro
+'
+'
+    With Selection.PageSetup
+        .LineNumbering.Active = False
+        .Orientation = wdOrientPortrait
+        .TopMargin = InchesToPoints(0.75)
+        .BottomMargin = InchesToPoints(1)
+        .LeftMargin = InchesToPoints(0.62)
+        .RightMargin = InchesToPoints(0.62)
+        .Gutter = InchesToPoints(0)
+        .HeaderDistance = InchesToPoints(0.5)
+        .FooterDistance = InchesToPoints(0.5)
+        .PageWidth = InchesToPoints(8.5)
+        .PageHeight = InchesToPoints(11)
+        .FirstPageTray = wdPrinterDefaultBin
+        .OtherPagesTray = wdPrinterDefaultBin
+        .SectionStart = wdSectionNewPage
+        .OddAndEvenPagesHeaderFooter = False
+        .DifferentFirstPageHeaderFooter = False
+        .VerticalAlignment = wdAlignVerticalTop
+        .SuppressEndnotes = False
+        .MirrorMargins = False
+        .TwoPagesOnOne = False
+        .BookFoldPrinting = False
+        .BookFoldRevPrinting = False
+        .BookFoldPrintingSheets = 1
+        .GutterPos = wdGutterPosLeft
+        .LayoutMode = wdLayoutModeDefault
+    End With
+    If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
+        ActiveWindow.Panes(2).Close
+    End If
+    If ActiveWindow.ActivePane.View.Type <> wdPrintView Then
+        ActiveWindow.ActivePane.View.Type = wdPrintView
+    End If
+    With Selection.PageSetup.TextColumns
+        .SetCount NumColumns:=2
+        .EvenlySpaced = True
+        .LineBetween = False
+        .Width = InchesToPoints(7.26)
+    End With
+    If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
+        ActiveWindow.Panes(2).Close
+    End If
+    If ActiveWindow.ActivePane.View.Type <> wdPrintView Then
+        ActiveWindow.ActivePane.View.Type = wdPrintView
+    End If
+    With Selection.PageSetup.TextColumns
+        .SetCount NumColumns:=2
+        .EvenlySpaced = True
+        .LineBetween = False
+        .Width = InchesToPoints(3.5)
+        .Spacing = InchesToPoints(0.26)
+    End With
+    Selection.ParagraphFormat.Alignment = wdAlignParagraphJustify
+End Sub
