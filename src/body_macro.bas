@@ -2,6 +2,8 @@ Sub BodyMacro()
 '
 ' BodyMacro Macro
 '
+'Author: Abigail Santos
+' This macro formats text into the IEEE standards for a two column report.
 '
     Application.WindowState = wdWindowStateNormal
     Selection.WholeStory
